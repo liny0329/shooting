@@ -5,12 +5,12 @@ body {
 	align-items: center;
 	height: 100vh;
 	margin: 0;
-	background: #222;
+	background: #f8f4f459;
 }
 
 canvas {
 	display: block;
-	background: #fff;
+	background: #ffffff;
 	border: 2px solid #333;
 	box-shadow: 0 4px 16px rgba(0,0,0,0.3);
 }

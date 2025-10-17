@@ -1,18 +1,14 @@
+import{ player, initPlayer,drawPlayer} from "./player.js";    
+import{ spawnEnemy, enemy,} from "./enemy.js";
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-const player = {
-    x: canvas.width / 2 - 15,
-    y: canvas.height - 60,
-    width: 30,
-    height: 30,
-    color:"#ffffff",
-    life:3,
-
-};
+initPlayer(canvas);
+spawnEnemy(canvas);
 
 const bullets = [];
-const BULLET_SPEED = -1;
+const BULLET_SPEED = -10;
 
 function tryShoot() {
      bullets.push({
@@ -48,8 +44,7 @@ function update() {
 function draw() {
 ctx.fillStyle="rgba(225, 156, 194, 0.44)";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
-ctx.fillStyle=player.color
-ctx.fillRect(player.x,player.y,player.width,player.height);
+drawPlayer(ctx);
 
 for (let i = bullets.length - 1; i >= 0; i--) {
     const bullet = bullets[i];
@@ -62,6 +57,9 @@ for (let i = bullets.length - 1; i >= 0; i--) {
     if (bullet.y + bullet.height < 0) {
         bullets.splice(i, 1);
     }
+ctx.fillStyle = "red";
+    ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
+
     console.log(bullets);
 }
 if(tama>0){

@@ -1,19 +1,19 @@
- export const player = {
-    x:0,
-    y:0,
+export const player = {
+    x: 0,
+    y: 0,
     width: 30,
     height: 30,
-    color:"#ffffff",
-    life:3,
+    color: "white",
+    life: 3,
 };
 
 export function initPlayer(canvas) {
     player.x = canvas.width / 2 - player.width / 2;
-    player.y = canvas.height -60;
-    console.log("Player:",player);
+    player.y = canvas.height - 60;
+    console.log("Player:", player);
 }
 
 export function drawPlayer(ctx) {
-ctx.fillStyle=player.color;
-ctx.fillRect(player.x,player.y,player.width,player.height);
+    ctx.fillStyle = player.color;
+    ctx.fillRect(player.x, player.y, player.width, player.height);
 }

@@ -1,10 +1,15 @@
+const enemyImage = new Image();
+enemyImage.src = "player.png";
+
 export const player = {
+
     x: 0,
     y: 0,
     width: 30,
     height: 30,
     color: "white",
-    life: 3,
+    life: 99999999999999,
+    score:0,
 };
 
 export function initPlayer(canvas) {

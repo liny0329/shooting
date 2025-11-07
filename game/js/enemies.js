@@ -1,6 +1,7 @@
 export const enemies = [];
 const SIZE = 26;
-
+const enemyImage = new Image();
+enemyImage.src = "https://th.bing.com/th/id/OIP.m2_HuMnpVQODNHP1Gkw9qQHaEI?w=284&h=180&c=7&r=0&o=7&pid=1.7&rm=3";
 function pushEnemies(canvas) {
   const w = SIZE;
   const h = SIZE;
@@ -12,7 +13,7 @@ function pushEnemies(canvas) {
 }
 
 export function spawnEnemy(canvas) {
- if (enemies.length < 200) {
+ if (enemies.length < 53) {
     pushEnemies(canvas);
  }
 }
@@ -30,6 +31,6 @@ export function updateEnemies(canvas) {
 export function drawEnemies(ctx) {
   ctx.fillStyle = "crimson";
   for (const e of enemies) {
-    ctx.fillRect(e.x, e.y, e.width, e.height);
+    ctx.drawImage(enemyImage,e.x, e.y, e.width, e.height);
   }
 }

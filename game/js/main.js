@@ -7,20 +7,25 @@ const ctx = canvas.getContext("2d");
 
 initPlayer(canvas);
 spawnEnemy(canvas);
-
 export const bullets = [];
-const BULLET_SPEED = -20;
+const BULLET_SPEED = -10;
 
 function tryShoot() {
     bullets.push({
-        x: player.x,
+        x: player.x+player.width/2 - 200,
         y: player.y,
-        width: 600,
-        height: 5,
+        width: 500,
+        height: 20,
         vy: BULLET_SPEED,
     })
 }
 
+function updateScore(){
+    const scoreBoard = document.getElementById("scoreBoard");
+    scoreBoard.innerText = `Score: ${player.score}`;
+    const lifeBoard = document.getElementById("lifeBoard");
+    lifeBoard.innerText = `Life: ${player.life}`;
+}
 
 window.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") {
@@ -62,6 +67,7 @@ function draw() {
 drawEnemies(ctx);
 spawnEnemy(canvas);
 handleCollisions();
+updateScore();
 }
 
 function gameLoop() {

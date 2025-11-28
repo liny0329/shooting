@@ -1,19 +1,19 @@
 export const enemies = [];
-const SIZE = 26;
+const SIZE = 50;
 const enemyImage = new Image();
-enemyImage.src = "https://th.bing.com/th/id/OIP.m2_HuMnpVQODNHP1Gkw9qQHaEI?w=284&h=180&c=7&r=0&o=7&pid=1.7&rm=3";
+enemyImage.src = "https://p.potaufeu.asahi.com/198c-p/picture/26793598/6f3fc0610ab0eed854a45bcbf303d537.jpg";
 function pushEnemies(canvas) {
   const w = SIZE;
   const h = SIZE;
   const x = Math.random() * (canvas.width - w);
   const y = 0;
-  const vy = 5
+  const vy = 1
 
   enemies.push({ x, y, width: w, height: h, vy });
 }
 
 export function spawnEnemy(canvas) {
- if (enemies.length < 53) {
+ if (enemies.length < 9999999999999) {
     pushEnemies(canvas);
  }
 }

@@ -15,7 +15,7 @@ export function handleCollisions() {
         { x: e.x, y: e.y, width: e.width, height: e.height }
       )) {
         // 命中：弾と敵を削除、スコア加算
-        bullets.splice(bi, 1);
+        // 敵だけ削除して弾は残す（貫通）
         enemies.splice(ei, 1);
         player.score += 1;
         console.log("Score:", player.score);
@@ -47,10 +47,10 @@ export function handleCollisions() {
 }
 
 function rectsIntersect(a, b) {
-    return (
-        a.x < b.x+ b.width &&
-        a.x + a.width> b.x &&
-        a.y <b.y+b.width &&
-        a.y + a.height>b.y
-    );
+  return (
+    a.x < b.x + b.width &&
+    a.x + a.width > b.x &&
+    a.y < b.y + b.height &&
+    a.y + a.height > b.y
+  );
     }

@@ -11,13 +11,15 @@ export const bullets = [];
 const BULLET_SPEED = -10;
 
 function tryShoot() {
+    const bw = 500;
+    const bh = 20;
     bullets.push({
-        x: player.x+player.width/2 - 200,
-        y: player.y,
-        width: 500,
-        height: 20,
+        x: player.x + (player.width - bw) / 2,
+        y: player.y - bh,
+        width: bw,
+        height: bh,
         vy: BULLET_SPEED,
-    })
+    });
 }
 
 function updateScore(){

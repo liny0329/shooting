@@ -18,9 +18,43 @@ function tryShoot() {
         y: player.y - bh,
         width: bw,
         height: bh,
+        vx:0,
         vy: BULLET_SPEED,
-    });
+    },{
+    
+        x: player.x + (player.width - bw) / 2,
+        y: player.y - bh,
+        width: bw,
+        height: bh,
+        vx:-2,
+        vy:-20,
+    },{
+    
+        x: player.x + (player.width - bw) / 2,
+        y: player.y - bh,
+        width: bw,
+        height: bh,
+        vx:2,
+        vy: -50,
+    },{
+    
+        x: player.x + (player.width - bw) / 2,
+        y: player.y - bh,
+        width: bw,
+        height: bh,
+        vx:0,
+        vy: BULLET_SPEED,
+    },{
+    
+        x: player.x + (player.width - bw) / 2,
+        y: player.y - bh,
+        width: bw,
+        height: bh,
+        vx:0,
+        vy:0.0000000001,
+    })
 }
+
 
 function updateScore(){
     const scoreBoard = document.getElementById("scoreBoard");
@@ -38,6 +72,14 @@ window.addEventListener("keydown", (e) => {
         if (player.x < canvas.width - player.width - 10) {
             player.x += 10;
         }
+        } else if (e.key === "ArrowUp") {
+        if (player.y >10) {
+            player.y -= 10;
+        }
+        } else if (e.key === "ArrowDown") {
+        if (player.y < canvas.height - player.height -10) {
+            player.y += 10;
+        }
     } else if (e.code === "Space") {
         tryShoot();
     }
@@ -47,6 +89,7 @@ function update() {
     for (let i = 0; i < bullets.length; i++) {
         const bullet = bullets[i];
         bullet.y += bullet.vy;
+        bullet.x+=bullet.vx;
         if (bullet.y < 0) {
             bullets.splice(i, 1);
         }

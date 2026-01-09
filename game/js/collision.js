@@ -17,7 +17,7 @@ export function handleCollisions() {
         // 命中：弾と敵を削除、スコア加算
         // 敵だけ削除して弾は残す（貫通）
         enemies.splice(ei, 1);
-        player.score += 1;
+        player.score += 1000;
         console.log("Score:", player.score);
         hit = true;
         break; // この敵は消えたので次の敵へ

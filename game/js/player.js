@@ -8,7 +8,7 @@ export const player = {
     width: 30,
     height: 30,
     color: "white",
-    life: 999999999999999,
+    life: 9999999999999,
     score:0,
 };
 
